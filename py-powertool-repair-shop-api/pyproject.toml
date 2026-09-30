@@ -1,0 +1,41 @@
+[project]
+name = "powertool-repair-shop-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "msventurini", email = "msventurini@icloud.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+powertool-repair-shop-api = "powertool_repair_shop_api:main"
+
+[build-system]
+requires = ["uv_build>=0.11.16,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.1",
+]
+
+[tool.pyright]
+extends = "pyrightconfig.json"
+typeCheckingMode = "strict"
+include = ["src"]
+# stubPath
+pythonVersion = "3.15"
+# stubPath
+# venv
+# venvPath
+# typeshedPath
+# deprecateTypingAliases
+# analyzeUnannotatedFunctions
+# defineConstant
+# strictDictionaryInference
+# strictListInference
+# strictParameterNoneValue
+# strictSetInference
+#

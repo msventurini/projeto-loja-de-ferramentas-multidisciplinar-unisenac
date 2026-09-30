@@ -1,0 +1,38 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+  "disable_ai": true,
+  "colorize_brackets": true,
+
+  "languages": {
+    "JSON": {
+      "enable_language_server": true,
+      "document_symbols": "on"
+    },
+    "Python": {
+      "enable_language_server": true,
+
+      "indent_guides": {
+
+        "enabled": true,
+        "coloring": "indent_aware",
+        "background_coloring": "indent_aware"
+
+      },
+    }
+  },
+
+  "terminal": {
+    "detect_venv": {
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default"
+      }
+
+    },
+    "working_directory": "current_project_directory"
+
+  }
+}
