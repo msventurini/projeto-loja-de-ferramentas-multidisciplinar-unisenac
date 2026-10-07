@@ -31,7 +31,7 @@ CREATE TABLE PowerTool(
 );
 
 CREATE TABLE Customer(
-	GovID VARCHAR(11) PRIMARY KEY,
+	CustomerGovID VARCHAR(11) PRIMARY KEY,
     FirstName VARCHAR(20),
     MiddleName VARCHAR(20),
     LastName VARCHAR(20),
@@ -42,7 +42,7 @@ CREATE TABLE ServiceOrder(
 	ServiceID INT PRIMARY KEY,
     ServiceDescription VARCHAR(100),
     PowerToolID VARCHAR(20),
-    CustomerID VARCHAR(11),
+    CustomerGovID VARCHAR(11),
 	Price DECIMAL(6,2) NOT NULL,
 	CheckInDate DATE NOT NULL,
     CheckOutDate DATE,
@@ -50,9 +50,9 @@ CREATE TABLE ServiceOrder(
 	CONSTRAINT fk_PowerToolID
     FOREIGN KEY (PowerToolID)
     REFERENCES PowerTool(PowerToolID),
-    CONSTRAINT fk_CustomerID
-    FOREIGN KEY (CustomerID)
-    REFERENCES Customer(GovID)
+    CONSTRAINT fk_CustomerGovID
+    FOREIGN KEY (CustomerGovID)
+    REFERENCES Customer(CustomerGovID)
 );
 
 
@@ -64,7 +64,7 @@ VALUES
 (4, 'BOSCH'),
 (5, 'MILWAUKEE');
 
-SELECT * FROM Brand;
+SELECT BrandID, BrandName FROM Brand;
 
 INSERT INTO BatterySystem(BatterySystemID, BatterySystemName, BrandID, Voltage)
 VALUES
@@ -87,12 +87,18 @@ VALUES
 
 SELECT * FROM PowerTool;
 
-INSERT INTO Customer(GovId, FirstName, MiddleName, LastName, Birth)
+INSERT INTO Customer(CustomerGovID, FirstName, MiddleName, LastName, Birth)
 VALUES
 ('12345678900', 'matheus', 'silveira', 'venturini','1994-09-03');
 
 
-INSERT INTO ServiceOrder(ServiceID, ServiceDescription, PowerToolID, CustomerID, Price, CheckInDate, CheckOutDate)
+INSERT INTO ServiceOrder(ServiceID, ServiceDescription, PowerToolID, CustomerGovID, Price, CheckInDate, CheckOutDate)
 VALUES
-(1, 'Troca do sabre da motosserra', '1', '12345678900', 400.00, '2026-10-05' , '2026-10-05')
+(1, 'Troca do sabre da motosserra', '1', '12345678900', 400.00, '2026-10-05' , '2026-10-05');
 
+
+SELECT PowerTool.PowerToolMarketingName, Brand.BrandName, ServiceOrder.ServiceDescription, ServiceOrder.Price, ServiceOrder.CheckInDate, ServiceOrder.CheckOutDate, Customer.FirstName 
+FROM ServiceOrder
+INNER JOIN Customer USING (CustomerGovID)
+INNER JOIN PowerTool USING (PowerToolID)
+INNER JOIN Brand USING (BrandID)
