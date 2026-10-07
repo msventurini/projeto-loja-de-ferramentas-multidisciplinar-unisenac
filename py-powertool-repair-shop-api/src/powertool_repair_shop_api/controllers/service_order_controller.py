@@ -16,6 +16,20 @@ class ServiceOrderController:
         return jsonify({"erro": "order not found"}), 404
 
     @staticmethod
-    def cadastrar(order_data):
+    def register_new_order(order_data):
         new_data_id = ServiceOrder.insert_new_order(order_data=order_data)
-        return jsonify({"mensagem": "Série criada com sucesso", "id": new_data_id}), 201
+        return jsonify({"mensagem": "order created successfully", "id": new_data_id}), 201
+
+    @staticmethod
+    def update_order(service_id, order_data):
+        success = ServiceOrder.update_order(service_id=service_id, order_data=order_data)
+        if success:
+            return jsonify({"mensagem": "Order updated successful"})
+        return jsonify({"erro": "Not Found", "código": "404"}), 404
+
+    @staticmethod
+    def delete_order(service_id):
+        sucesso = ServiceOrder.delete_order(service_id)
+        if sucesso:
+            return jsonify({"mensagem": "deleted"})
+        return jsonify({"erro": "not found", "código": "404"}), 404
