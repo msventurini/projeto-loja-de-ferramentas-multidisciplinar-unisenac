@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/bd": true,
+        "**/py-shared-libs": true,
+        "**/py-powertool-repair-shop-api": true
+    }
+}

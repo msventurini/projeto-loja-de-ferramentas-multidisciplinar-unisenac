@@ -6,8 +6,10 @@ readme = "README.md"
 authors = [
     { name = "msventurini", email = "msventurini@icloud.com" }
 ]
-requires-python = ">=3.14"
-dependencies = []
+requires-python = ">=3.15"
+dependencies = [
+    "mysql-connector-python>=26.7.0",
+]
 
 [build-system]
 requires = ["uv_build>=0.11.16,<0.12.0"]
