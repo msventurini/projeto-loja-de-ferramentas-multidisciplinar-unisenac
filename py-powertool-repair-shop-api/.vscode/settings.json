@@ -1,17 +1,4 @@
 {
-    "chat.disableAIFeatures": true,
-    "telemetry.editStats.details.enabled": false,
-    "telemetry.editStats.enabled": false,
-    "telemetry.editStats.showDecorations": false,
-    "telemetry.editStats.showStatusBar": false,
-    "telemetry.feedback.enabled": false,
-    "python.analysis.enablePerfTelemetry": false,
-    "editor.aiStats.enabled": false,
-    "chat.mcp.access": "none",
-    "chat.agent.enabled": false,
-    "inlineChat.askInChat": false,
-    "git.addAICoAuthor": "off",
-    "chat.copilot.semanticSearch.enabled": false,
-    "chat.autopilot.advanced.enabled": false,
-    "chat.copilot.subagentModelGuidance.enabled": false
+    "python-envs.alwaysUseUv": true        
+
 }
