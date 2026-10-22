@@ -11,8 +11,8 @@
             "name": "database-helper-kit"
         },
         {
-            "path": "py-shared-libs/vehicle-typing-foundation",
-            "name": "vehicle-typing-foundation"
+            "path": "py-shared-libs/vehicle-management-kit",
+            "name": "vehicle-management-kit"
         },
         {
             "path": ".",
